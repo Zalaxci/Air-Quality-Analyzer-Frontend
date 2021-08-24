@@ -7,7 +7,7 @@ function renderMarkers(map, schools) {
       marker.addTo(map);
     });
 }
-async function renderMap(container) {
+async function renderMap(i, container) {
     let centerCoords = [40.59688, 22.9645578];
     let zoom = 13;
     let map = L.map(container);
@@ -17,7 +17,7 @@ async function renderMap(container) {
     }).addTo(map);
     renderMarkers(map, await getSchools());
 }
-async function renderChart(container) {
+async function renderChart(i, container) {
     let columns = [
         ['x', ...await getUniqueDates()],
         ...await getSchoolMetrics(container.id)
@@ -39,5 +39,5 @@ async function renderChart(container) {
     });
 }
 
-forElement('.map', renderMap);
-forElement('.chart', renderChart);
+$('.map').each(renderMap);
+$('.chart').each(renderChart);
