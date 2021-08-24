@@ -1,9 +1,10 @@
 import { getSchools, getSchoolMetrics, getUniqueDates } from './data.js';
+import { onEvent, transmitEvent } from './events.js';
 
 function renderMarkers(map, schools) {
     schools.forEach(school => {
       let marker = L.marker([school.sch_lat, school.sch_long]);
-      marker.on('click', () => console.log(school));
+      marker.on('click', () => transmitEvent('toggleSchool', school));
       marker.addTo(map);
     });
 }
@@ -22,7 +23,7 @@ async function renderChart(i, container) {
         ['x', ...await getUniqueDates()],
         ...await getSchoolMetrics(container.id)
     ];
-    c3.generate({
+    let chart = c3.generate({
       bindto: container,
       data: {
         x: 'x',
@@ -36,6 +37,12 @@ async function renderChart(i, container) {
               }
           }
       }
+    });
+    let shownSchools = (await getSchools()).map(() => true);
+    onEvent('toggleSchool', school => {
+      shownSchools[school.sch_id - 1] = !shownSchools[school.sch_id - 1];
+      if (shownSchools[school.sch_id - 1]) chart.show([school.sch_name]);
+      else chart.hide([school.sch_name]);
     });
 }
 
