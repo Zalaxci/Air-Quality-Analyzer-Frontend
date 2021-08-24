@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schools</title>
-    <link rel="stylesheet" href="https://zalaxci.github.io/universal-frontend/main.css?v=5">
-    <link rel="stylesheet" href="https://zalaxci.github.io/universal-frontend/fonts/arial.css">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css">
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="bower_components/c3/c3.min.css">
     <link rel="stylesheet" href="sections/sidepanel.css">
@@ -16,15 +15,15 @@
       }
     </style>
   </head>
-  <body class="margin-none">
-    <section class="container-width page-height map"></section>
-    <input type="checkbox" class="fixed-overlay hidden" id="sidepanel-toggle" name="sidepanel-toggle" value="Show sidepanel">
-    <label class="fixed-overlay top left" for="sidepanel-toggle">☰</label>
-    <section class="fixed-overlay smaller-than-container" id="sidepanel" data-name="Show Charts">
-      <div class="container-width half-page-height c3" id="pm2_5"></div>
-      <div class="container-width half-page-height c3" id="pm10"></div>
-      <div class="container-width half-page-height c3" id="temp"></div>
-      <div class="container-width half-page-height c3" id="humidity"></div>
+  <body class="ma0">
+    <section class="vh-100 w-100 map"></section>
+    <input type="checkbox" class="dn fixed" id="sidepanel-toggle" name="sidepanel-toggle" value="Show sidepanel">
+    <label class="fixed z-max top-1 right-2" for="sidepanel-toggle">☰</label>
+    <section class="fixed z-9999 top-0 right-0 bottom-0 mh-100 w-100 w-50-m w-third-l overflow-y-scroll bg-black-80" id="sidepanel">
+      <div class="vh-50 w-100 c3" id="pm2_5"></div>
+      <div class="vh-50 w-100 c3" id="pm10"></div>
+      <div class="vh-50 w-100 c3" id="temp"></div>
+      <div class="vh-50 w-100 c3" id="humidity"></div>
     </section>
     <script src="https://zalaxci.github.io/universal-frontend/main.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
