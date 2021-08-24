@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="bower_components/c3/c3.min.css">
     <link rel="stylesheet" href="sections/sidepanel.css">
     <style>
-      .c3 {
+      .chart {
         height: 50vh !important;
         max-height: 50vh !important;
       }
@@ -20,15 +20,15 @@
     <input type="checkbox" class="dn fixed" id="sidepanel-toggle" name="sidepanel-toggle" value="Show sidepanel">
     <label class="fixed z-max top-1 right-2" for="sidepanel-toggle">☰</label>
     <section class="fixed z-9999 top-0 right-0 bottom-0 mh-100 w-100 w-50-m w-third-l overflow-y-scroll bg-black-80" id="sidepanel">
-      <div class="vh-50 w-100 c3" id="pm2_5"></div>
-      <div class="vh-50 w-100 c3" id="pm10"></div>
-      <div class="vh-50 w-100 c3" id="temp"></div>
-      <div class="vh-50 w-100 c3" id="humidity"></div>
+      <div class="vh-50 w-100 chart" id="pm2_5"></div>
+      <div class="vh-50 w-100 chart" id="pm10"></div>
+      <div class="vh-50 w-100 chart" id="temp"></div>
+      <div class="vh-50 w-100 chart" id="humidity"></div>
     </section>
     <script src="https://zalaxci.github.io/universal-frontend/main.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
     <script src="bower_components/c3/c3.min.js"></script>
-    <script type="module" src="data/render.js"></script>
+    <script type="module" src="components.js"></script>
   </body>
 </html>
