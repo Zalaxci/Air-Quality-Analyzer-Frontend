@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schools</title>
-    <link rel="stylesheet" href="https://zalaxci.github.io/universal-frontend/main.css?v=2">
+    <link rel="stylesheet" href="https://zalaxci.github.io/universal-frontend/main.css?v=5">
     <link rel="stylesheet" href="https://zalaxci.github.io/universal-frontend/fonts/arial.css">
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="bower_components/c3/c3.min.css">
@@ -18,20 +18,18 @@
   </head>
   <body class="margin-none">
     <section class="container-width page-height map"></section>
-    <section class="fixed-overlay sidepanel smaller-than-container" data-name="Particle matter">
+    <input type="checkbox" class="fixed-overlay hidden" id="sidepanel-toggle" name="sidepanel-toggle" value="Show sidepanel">
+    <label class="fixed-overlay top left" for="sidepanel-toggle">☰</label>
+    <section class="fixed-overlay smaller-than-container" id="sidepanel" data-name="Show Charts">
       <div class="container-width half-page-height c3" id="pm2_5"></div>
       <div class="container-width half-page-height c3" id="pm10"></div>
-    </section>
-    <section class="fixed-overlay hidden sidepanel" data-name="Temperature & humidity">
       <div class="container-width half-page-height c3" id="temp"></div>
       <div class="container-width half-page-height c3" id="humidity"></div>
     </section>
-    <div class="fixed-overlay container-width flex flex-wrap center-content" id="chart-selector" style="top: 0;"></div>
     <script src="https://zalaxci.github.io/universal-frontend/main.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
     <script src="bower_components/c3/c3.min.js"></script>
     <script type="module" src="data/render.js"></script>
-    <script type="module" src="sections/sidepanel.js"></script>
   </body>
 </html>

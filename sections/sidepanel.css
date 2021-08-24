@@ -1,4 +1,7 @@
-.sidepanel {
+#sidepanel-toggle:checked ~ #sidepanel, #sidepanel-toggle:checked ~ #sidepanel * {
+    visibility: hidden;
+}
+#sidepanel {
     top:0;
     bottom:0;
     right:0;
