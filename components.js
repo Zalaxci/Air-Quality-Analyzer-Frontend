@@ -19,15 +19,21 @@ async function renderMap(i, container) {
     renderMarkers(map, await getSchools());
 }
 async function renderChart(i, container) {
-    let columns = [
-        ['x', ...await getUniqueDates()],
+    let x = 'x';
+    let labels = [
+        ['x', ...await getUniqueDates()]
+    ];
+    let data = [
         ...await getSchoolMetrics(container.id)
     ];
     let chart = c3.generate({
       bindto: container,
       data: {
-        x: 'x',
-        columns
+        x,
+        columns: [
+            ...await labels
+            ...await data
+        ]
       },
       axis: {
           x: {
