@@ -31,7 +31,7 @@ async function renderChart(i, container) {
       data: {
         x,
         columns: [
-            ...await labels
+            ...await labels,
             ...await data
         ]
       },
