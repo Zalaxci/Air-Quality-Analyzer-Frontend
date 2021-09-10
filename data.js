@@ -6,10 +6,18 @@ let schools = (async () => {
 export async function getSchools() {
     return await schools;
 }
-export async function getUniqueDates() {
-    let allMetrics = (await schools).map(school => school.metrics).flat();
-    let allDates = (await allMetrics).map(metric => metric.date);
-    return [...await new Set(await allDates)];
+export async function getSchoolLabels() {
+    let xs = {};
+    let labels = [];
+    (await schools).forEach(school => {
+        let xAxis = `x${school.sch_id}`;
+        let timestamps = school.metrics.map(
+            metric => metric.date
+        );
+        xs[school.sch_name] = xAxis;
+        labels.push([xAxis, ...timestamps]);
+    });
+    return { xs, labels };
 }
 export async function getSchoolMetrics(datatype) {
     return (await schools).map(school => {
