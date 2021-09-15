@@ -1,6 +1,6 @@
 #sidepanel-toggle:checked ~ #sidepanel, #sidepanel-toggle:checked ~ #sidepanel * {
     visibility: hidden;
 }
-#sidepanel * {
-    color: white;
+.c3-legend-item, .c3-axis {
+    fill: white;
 }
