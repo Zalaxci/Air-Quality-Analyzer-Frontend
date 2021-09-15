@@ -24,7 +24,7 @@ async function renderChart(i, container) {
     let chart = c3.generate({
       bindto: container,
       data: {
-        (await xs),
+        xs: await xs,
         columns: [
             ...await labels,
             ...await data
