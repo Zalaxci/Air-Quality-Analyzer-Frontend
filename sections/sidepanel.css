@@ -1,3 +1,6 @@
 #sidepanel-toggle:checked ~ #sidepanel, #sidepanel-toggle:checked ~ #sidepanel * {
     visibility: hidden;
 }
+#sidepanel * {
+    color: white;
+}
