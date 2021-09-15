@@ -1,4 +1,4 @@
-import { getSchools, getSchoolMetrics, getUniqueDates } from './data.js';
+import { getSchools, getSchoolLabels, getSchoolMetrics } from './data.js';
 import { onEvent, transmitEvent } from './events.js';
 
 function renderMarkers(map, schools) {
@@ -19,29 +19,16 @@ async function renderMap(i, container) {
     renderMarkers(map, await getSchools());
 }
 async function renderChart(i, container) {
-    let x = 'x';
-    let labels = [
-        ['x', ...await getUniqueDates()]
-    ];
-    let data = [
-        ...await getSchoolMetrics(container.id)
-    ];
+    let { xs, labels } = await getSchoolLabels();
+    let data = await getSchoolMetrics(container.id)
     let chart = c3.generate({
       bindto: container,
       data: {
-        x,
+        (await xs),
         columns: [
             ...await labels,
             ...await data
         ]
-      },
-      axis: {
-          x: {
-              type: 'timeseries',
-              tick: {
-                  format: '%Y-%m-%d'
-              }
-          }
       }
     });
     let shownSchools = (await getSchools()).map(() => true);
