@@ -10,13 +10,13 @@ export async function getSchoolLabels() {
     let xs = {};
     let labels = [];
     (await schools).forEach(school => {
-        let xAxis = `x${school.sch_id}`;
+        let xAxis = `sch_${school.sch_id}`;
         let timestamps = school.metrics.map(
             metric => {
                 let timestamp = metric.date;
-                let filteredTimestamp = timestamp.replace(/-/g, '').replace(/ /g, '').replace(/:/g, '');
-                let timestampNumber = parseInt(filteredTimestamp);
-                return parseInt(filteredTimestamp);
+                let filteredTimestamp = timestamp.replace(/-/g, '').replace(/ /g, '').replace(/:/g, '').substring(0,10);
+                let timestampNumber = parseInt(filteredTimestamp) / 100;
+                return timestampNumber;
             }
         );
         xs[school.sch_name] = xAxis;
